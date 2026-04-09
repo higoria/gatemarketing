@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Search, Compass, MousePointerClick, BarChart2, Link as LinkIcon, Filter, ArrowUpDown } from "lucide-react";
 

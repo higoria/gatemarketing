@@ -3,10 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   TrendingDown,
-  AlertTriangle,
   Clock,
-  DollarSign,
-  XCircle,
   ArrowRight,
   AlertCircle,
   ChevronRight,

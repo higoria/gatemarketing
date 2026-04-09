@@ -7,7 +7,6 @@ import {
   Rocket,
   Crown,
   ArrowRight,
-  Globe,
   Megaphone,
   Palette,
   Code2,
@@ -207,7 +206,6 @@ export default function Pricing() {
             ════════════════════════════════════════════════════ */}
         <div className="pricing-grid grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-8">
           {plans.map((plan, i) => {
-            const _Icon = plan.icon;
             const isHighlight = plan.highlight;
 
             return (

@@ -1,5 +1,3 @@
-import React from "react";
-
 const logos = [
   { name: "Nexify", abbr: "NX" },
   { name: "Vortex Lab", abbr: "VL" },
