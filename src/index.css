@@ -1,0 +1,155 @@
+/* Rebond Grotesque — local font declarations */
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Hairline-BF661890413e3d1.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-HairlineItalic-BF66189040b3182.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Thin-BF6618904123ce3.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-ThinItalic-BF66189041177e8.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Extralight-BF6618904107ccc.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-ExtralightItalic-BF66189041219b7.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Light-BF66189040e6001.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-LightItalic-BF6618904058974.otf') format('opentype');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Regular-BF66189040b697b.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Italic-BF66189040a4d2d.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Medium-BF6618904088566.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-MediumItalic-BF6618904082cb3.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Semibold-BF66189040640ea.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-SemiboldItalic-BF6618904043e67.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Bold-BF66189040400df.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-BoldItalic-BF6618904029e34.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-Extrabold-BF661890400e032.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rebond Grotesque';
+  src: url('/fonts/ESRebondGrotesqueTRIAL-ExtraboldItalic-BF6618903f81f73.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#030005] text-white overflow-x-hidden;
+    font-family: 'Rebond Grotesque', sans-serif;
+  }
+}
+
+/* Custom Webkit scrollbar for the dashboard tables */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
