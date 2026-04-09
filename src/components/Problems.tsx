@@ -5,6 +5,10 @@ import {
   DollarSign,
   Clock,
   ChevronRight,
+  XCircle,
+  AlertTriangle,
+  ArrowDownRight,
+  Activity,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
