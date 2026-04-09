@@ -2,10 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  TrendingDown,
+  DollarSign,
   Clock,
-  ArrowRight,
-  AlertCircle,
   ChevronRight,
 } from "lucide-react";
 

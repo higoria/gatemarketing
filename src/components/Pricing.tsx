@@ -7,6 +7,7 @@ import {
   Rocket,
   Crown,
   ArrowRight,
+  Globe,
   Megaphone,
   Palette,
   Code2,
