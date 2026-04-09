@@ -9,6 +9,9 @@ import {
   AlertTriangle,
   ArrowDownRight,
   Activity,
+  BarChart2,
+  Target,
+  Users,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
