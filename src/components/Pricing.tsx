@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Check,
   Sparkles,
   Zap,
   Rocket,
@@ -208,7 +207,7 @@ export default function Pricing() {
             ════════════════════════════════════════════════════ */}
         <div className="pricing-grid grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-8">
           {plans.map((plan, i) => {
-            const Icon = plan.icon;
+            const _Icon = plan.icon;
             const isHighlight = plan.highlight;
 
             return (
