@@ -153,7 +153,7 @@ export default function Solutions() {
     >
       {/* ─── Background ─── */}
       <div className="absolute inset-0 bg-[#05000a] pointer-events-none" />
-      <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[40vw] bg-purple-600/[0.04] blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[40vw] radial-glow-purple rounded-full pointer-events-none transform-gpu" />
 
       <div className="relative z-10">
 

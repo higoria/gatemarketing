@@ -15,10 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ─── Stats ─── */
 const stats = [
-  { value: "R$ 4.2M+", label: "Em receita gerada", icon: TrendingUp },
-  { value: "120+", label: "Clientes atendidos", icon: Users },
-  { value: "340%", label: "ROAS médio", icon: BarChart3 },
-  { value: "98%", label: "Taxa de retenção", icon: Award },
+  { prefix: "R$ ", value: 4.2, suffix: "M+", decimals: 1, label: "Em receita gerada", icon: TrendingUp },
+  { prefix: "", value: 120, suffix: "+", decimals: 0, label: "Clientes atendidos", icon: Users },
+  { prefix: "", value: 340, suffix: "%", decimals: 0, label: "ROAS médio", icon: BarChart3 },
+  { prefix: "", value: 98, suffix: "%", decimals: 0, label: "Taxa de retenção", icon: Award },
 ];
 
 /* ─── Testimonials ─── */
@@ -220,7 +220,7 @@ export default function Results() {
         }
       );
 
-      /* ── Stats stagger ── */
+      /* ── Stats stagger (kept because it runs once per scroll) ── */
       gsap.fromTo(
         ".stat-item",
         { y: 30, opacity: 0 },
@@ -234,41 +234,26 @@ export default function Results() {
         }
       );
 
-      /* ── Infinite scroll — Row 1 (left) ── */
-      const setupMarquee = (
-        el: HTMLDivElement | null,
-        direction: "left" | "right"
-      ) => {
-        if (!el) return;
-        const inner = el.querySelector(".marquee-inner") as HTMLElement;
-        if (!inner) return;
-
-        const totalWidth = inner.scrollWidth / 2;
-        const xStart = direction === "left" ? 0 : -totalWidth;
-        const xEnd = direction === "left" ? -totalWidth : 0;
-
-        gsap.fromTo(
-          inner,
-          { x: xStart },
-          {
-            x: xEnd,
-            duration: 50,
-            ease: "none",
-            repeat: -1,
+      /* ── Stats count up ── */
+      gsap.utils.toArray<HTMLElement>(".stat-number").forEach((el) => {
+        const target = parseFloat(el.getAttribute("data-target") || "0");
+        const decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+        
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2.5,
+          ease: "expo.out",
+          scrollTrigger: { trigger: ".stats-row", start: "top 85%" },
+          onUpdate: () => {
+            el.innerHTML = obj.val.toFixed(decimals);
           }
-        );
+        });
+      });
 
-        // Pause on hover
-        el.addEventListener("mouseenter", () =>
-          gsap.to(inner, { timeScale: 0, duration: 0.4 })
-        );
-        el.addEventListener("mouseleave", () =>
-          gsap.to(inner, { timeScale: 1, duration: 0.4 })
-        );
-      };
+      /* Marquees transferidos para animação CSS nativa @keyframes no index.css
+         Isso remove o gargalo de cálculos de translate do GSAP e transfere pra GPU. */
 
-      setupMarquee(row1Ref.current, "left");
-      setupMarquee(row2Ref.current, "right");
     }, sectionRef);
 
     return () => ctx.revert();
@@ -284,7 +269,7 @@ export default function Results() {
     >
       {/* ─── Background ─── */}
       <div className="absolute inset-0 bg-[#05000a] pointer-events-none" />
-      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[40vw] bg-purple-600/[0.03] blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[40vw] radial-glow-purple rounded-full pointer-events-none transform-gpu" />
 
       <div className="relative z-10">
         {/* ════════════════════════════════════════════════════
@@ -329,7 +314,9 @@ export default function Results() {
 
                 <Icon className="w-4 h-4 text-purple-400/40 mx-auto mb-2 group-hover:text-purple-400/70 transition-colors duration-200" />
                 <p className="text-2xl md:text-3xl font-bold text-white/90 tracking-tight tabular-nums mb-1">
-                  {stat.value}
+                  {stat.prefix}
+                  <span className="stat-number" data-target={stat.value} data-decimals={stat.decimals}>0</span>
+                  {stat.suffix}
                 </p>
                 <p className="text-[11px] text-neutral-500 font-medium uppercase tracking-wider">
                   {stat.label}
@@ -350,7 +337,7 @@ export default function Results() {
           <div className="absolute left-0 top-0 h-full w-20 md:w-32 bg-gradient-to-r from-[#05000a] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 h-full w-20 md:w-32 bg-gradient-to-l from-[#05000a] to-transparent z-10 pointer-events-none" />
 
-          <div className="marquee-inner flex gap-4 will-change-transform">
+          <div className="marquee-inner flex gap-4 will-change-transform w-max flex-nowrap hover-pause" style={{ animation: "marquee-scroll-left 50s linear infinite" }}>
             {/* Duplicate for seamless loop */}
             {[...row1, ...row1].map((t, i) => (
               <TestimonialCard key={i} t={t} />
@@ -369,7 +356,7 @@ export default function Results() {
           <div className="absolute left-0 top-0 h-full w-20 md:w-32 bg-gradient-to-r from-[#05000a] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 h-full w-20 md:w-32 bg-gradient-to-l from-[#05000a] to-transparent z-10 pointer-events-none" />
 
-          <div className="marquee-inner flex gap-4 will-change-transform">
+          <div className="marquee-inner flex gap-4 will-change-transform w-max flex-nowrap hover-pause" style={{ animation: "marquee-scroll-right 50s linear infinite" }}>
             {/* Duplicate for seamless loop */}
             {[...row2, ...row2].map((t, i) => (
               <TestimonialCard key={i} t={t} />

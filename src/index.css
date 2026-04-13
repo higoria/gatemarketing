@@ -153,3 +153,77 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* 
+  ====================================================
+  PERFORMANCE OPTIMIZATIONS (Hardware Accelerated CSS)
+  ====================================================
+*/
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes star-spin {
+  from { transform: rotate(0deg) scale(1.2); }
+  to { transform: rotate(360deg) scale(1.2); }
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) translateZ(0); }
+  25% { transform: translate(3vw, -3vw) rotate(90deg) translateZ(0); }
+  50% { transform: translate(-2vw, 2vw) rotate(180deg) translateZ(0); }
+  75% { transform: translate(-4vw, -1vw) rotate(270deg) translateZ(0); }
+}
+
+@keyframes sweep-ray {
+  0% { opacity: 0; transform: translateX(-50vw) skewX(45deg) translateZ(0); }
+  10%, 90% { opacity: 0.15; }
+  100% { opacity: 0; transform: translateX(150vw) skewX(45deg) translateZ(0); }
+}
+
+@keyframes shooting-comet {
+  0% { transform: translate(100vw, -20vh) translateZ(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate(-20vw, 80vh) translateZ(0); opacity: 0; }
+}
+
+@keyframes chart-bar-bounce {
+  0%, 100% { transform: scaleY(0.4) translateZ(0); }
+  50% { transform: scaleY(0.9) translateZ(0); }
+}
+
+@keyframes marquee-scroll-left {
+  0% { transform: translateX(0) translateZ(0); }
+  100% { transform: translateX(-50%) translateZ(0); }
+}
+
+@keyframes marquee-scroll-right {
+  0% { transform: translateX(-50%) translateZ(0); }
+  100% { transform: translateX(0) translateZ(0); }
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Custom radial glows without expensive blur filter */
+.radial-glow-purple {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(168,85,247,0.15) 0%, transparent 100%);
+}
+
+.radial-glow-fuchsia {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(232,121,249,0.1) 0%, transparent 100%);
+}
+
+.radial-glow-indigo {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.1) 0%, transparent 100%);
+}
+
+.radial-glow-violet {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 100%);
+}

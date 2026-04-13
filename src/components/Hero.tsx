@@ -31,7 +31,7 @@ export default function HeroSection() {
         { y: 0, opacity: 1, rotationX: 0, duration: 1.8, ease: "expo.out", delay: 0.6 }
       );
 
-      // 3. Horizon Breathe Loop
+      // 3. Horizon Breathe Loop with ScrollTrigger pause
       if (horizonRef.current) {
         gsap.to(horizonRef.current, {
           scale: 1.15,
@@ -39,87 +39,18 @@ export default function HeroSection() {
           duration: 4,
           repeat: -1,
           yoyo: true,
-          ease: "sine.inOut"
+          ease: "sine.inOut",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            toggleActions: "play pause resume pause"
+          }
         });
       }
 
-      // 4. Slow Continuous Star Drift (Space depth feel)
-      if (starsRef.current) {
-        gsap.to(starsRef.current, {
-          rotate: 360,
-          scale: 1.2,
-          duration: 250,
-          repeat: -1,
-          ease: "none"
-        });
-
-        // Make individual stars twinkle
-        const starChildren = starsRef.current.children;
-        for (let i = 0; i < starChildren.length; i++) {
-          gsap.to(starChildren[i], {
-            opacity: Math.random() * 0.5 + 0.1,
-            duration: Math.random() * 2 + 1,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: Math.random() * 2
-          });
-        }
-      }
-
-      // 5. Floating Orbs / Aurora Loop
-      if (orbsRef.current?.children) {
-        const orbs = Array.from(orbsRef.current.children);
-        orbs.forEach((orb, i) => {
-          gsap.to(orb, {
-            x: () => (Math.random() - 0.5) * 400,
-            y: () => (Math.random() - 0.5) * 200,
-            rotation: () => Math.random() * 360,
-            duration: () => Math.random() * 8 + 10,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: i * -2 // Offset starts
-          });
-        });
-      }
-
-      // 6. Sweeping Light Rays (Like Wope's background scans)
-      if (raysRef.current?.children) {
-        const rays = Array.from(raysRef.current.children);
-        rays.forEach((ray, i) => {
-          gsap.fromTo(ray,
-            { opacity: 0, x: -500, skewX: 45 },
-            {
-              opacity: 0.15,
-              x: 1500,
-              duration: Math.random() * 5 + 8,
-              repeat: -1,
-              ease: "none",
-              delay: i * 4
-            }
-          );
-        });
-      }
-
-      // 7. Shooting Comets
-      if (cometsRef.current?.children) {
-        const comets = Array.from(cometsRef.current.children);
-        comets.forEach((comet, i) => {
-          gsap.fromTo(comet,
-            { x: '100vw', y: '-20vh', opacity: 0 },
-            {
-              x: '-20vw',
-              y: '80vh',
-              opacity: 1,
-              duration: 2.5,
-              repeat: -1,
-              ease: "power1.inOut",
-              delay: Math.random() * 10 + i * 5
-            }
-          );
-        });
-      }
+      // ORBS, RAYS, COMETS e STARS foram migrados para animações CSS puras
+      // para offload massivo da CPU e uso da GPU.
 
     }, containerRef);
     return () => ctx.revert();
@@ -138,29 +69,29 @@ export default function HeroSection() {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030005] via-[#0a0014] to-[#05000a] pointer-events-none" />
 
-      {/* Floating Ambient Orbs (Wope style background glows) */}
+      {/* Floating Ambient Orbs (Wope style background glows) - Optimized */}
       <div ref={orbsRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[30%] w-[40vw] h-[40vw] rounded-full bg-purple-600/10 blur-[100px]" />
-        <div className="absolute top-[10%] right-[20%] w-[35vw] h-[35vw] rounded-full bg-fuchsia-600/10 blur-[100px]" />
-        <div className="absolute top-[40%] left-[50%] w-[50vw] h-[50vw] rounded-full bg-indigo-600/10 blur-[100px]" />
+        <div className="absolute top-[20%] left-[30%] w-[40vw] h-[40vw] rounded-full radial-glow-purple" style={{ animation: "orb-float 15s infinite ease-in-out alternate" }} />
+        <div className="absolute top-[10%] right-[20%] w-[35vw] h-[35vw] rounded-full radial-glow-fuchsia" style={{ animation: "orb-float 18s infinite ease-in-out alternate-reverse" }} />
+        <div className="absolute top-[40%] left-[50%] w-[50vw] h-[50vw] rounded-full radial-glow-indigo" style={{ animation: "orb-float 20s infinite ease-in-out alternate" }} />
       </div>
 
       {/* Sweeping Light Rays */}
       <div ref={raysRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
-        <div className="absolute top-0 -left-[20%] w-[200px] h-full bg-gradient-to-r from-transparent via-purple-500/20 to-transparent blur-[20px] transform skew-x-12" />
-        <div className="absolute top-0 -left-[20%] w-[300px] h-full bg-gradient-to-r from-transparent via-fuchsia-500/10 to-transparent blur-[30px] transform skew-x-12" />
+        <div className="absolute top-0 -left-[20%] w-[200px] h-full bg-gradient-to-r from-transparent via-purple-500/20 to-transparent blur-[20px] will-change-transform" style={{ animation: "sweep-ray 12s infinite linear" }} />
+        <div className="absolute top-0 -left-[20%] w-[300px] h-full bg-gradient-to-r from-transparent via-fuchsia-500/10 to-transparent blur-[30px] will-change-transform" style={{ animation: "sweep-ray 15s infinite linear 4s" }} />
       </div>
 
       {/* Shooting Comets */}
       <div ref={cometsRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="absolute top-0 left-0 w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ transform: 'rotate(215deg)' }} />
+          <div key={i} className="absolute top-0 left-0 w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_10px_rgba(255,255,255,0.8)] will-change-transform opacity-0" style={{ transform: 'rotate(215deg)', animation: `shooting-comet 4s infinite ease-in-out ${i * 4}s` }} />
         ))}
       </div>
 
       {/* Rotating Starfield */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
-        <div ref={starsRef} className="absolute w-[150vw] h-[150vw]">
+        <div ref={starsRef} className="absolute w-[150vw] h-[150vw]" style={{ animation: "star-spin 250s infinite linear" }}>
           {[...Array(80)].map((_, i) => (
             <div
               key={i}
@@ -170,7 +101,7 @@ export default function HeroSection() {
                 height: Math.random() > 0.8 ? '3px' : '1.5px',
                 top: Math.random() * 100 + "%",
                 left: Math.random() * 100 + "%",
-                opacity: Math.random() * 0.5 + 0.1,
+                animation: `star-twinkle ${Math.random() * 2 + 1}s infinite alternate ease-in-out ${Math.random() * 2}s`
               }}
             />
           ))}
@@ -183,9 +114,9 @@ export default function HeroSection() {
         ====================================================
       */}
       {/* Massive Center Horizon Glow / Breathing Core */}
-      <div ref={horizonRef} className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center pointer-events-none z-0">
-        <div className="absolute w-[140vw] h-[20vw] bg-purple-600/30 blur-[120px] rounded-[100%]" />
-        <div className="absolute w-[80vw] h-[10vw] bg-fuchsia-500/40 blur-[80px] rounded-[100%]" />
+      <div ref={horizonRef} className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center pointer-events-none z-0 transform-gpu">
+        <div className="absolute w-[140vw] h-[20vw] rounded-[100%] radial-glow-purple" />
+        <div className="absolute w-[80vw] h-[10vw] rounded-[100%] radial-glow-fuchsia" />
         <div className="absolute w-[120vw] h-[1px] bg-gradient-to-r from-transparent via-purple-300/40 to-transparent shadow-[0_0_20px_#a855f7]" />
       </div>
 
@@ -246,7 +177,7 @@ export default function HeroSection() {
       <div className="relative z-20 w-full max-w-6xl mx-auto px-4 lg:px-8 mt-[10vh] perspective-1000">
         <div
           ref={dashboardRef}
-          className="w-full h-[400px] lg:h-[500px] rounded-t-2xl border-t border-l border-r border-white/20 bg-[#130724] shadow-[0_-15px_50px_rgba(168,85,247,0.15)] flex overflow-hidden relative style-will-change-transform"
+          className="w-full h-[400px] lg:h-[500px] rounded-t-2xl border-t border-l border-r border-white/20 bg-[#130724] shadow-[0_-15px_50px_rgba(168,85,247,0.15)] flex overflow-hidden relative will-change-transform"
         >
           {/* Top subtle inner glow on the dashboard */}
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-400/50 to-transparent" />

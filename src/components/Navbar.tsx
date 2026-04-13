@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Logo from "../assets/LogoGate.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,27 +24,27 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? "py-4 bg-[#0a0014]/60 backdrop-blur-md border-b border-white/5" 
-            : "py-6 bg-transparent border-transparent"
-        }`}
+        className={`fixed -top-10 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? "py-1 bg-[#0a0014]/60 backdrop-blur-md border-b border-white/5"
+          : "py-0 bg-transparent border-transparent"
+          }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          
+        <div className="max-w-[1700px] mx-auto px-4 md:px-8 flex items-center justify-between">
+
           {/* Logo Section */}
           <div className="flex items-center gap-2 group cursor-pointer z-50">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all duration-300">
-              <span className="text-white font-bold text-sm tracking-tighter" style={{ fontFamily: "sans-serif" }}>G</span>
-            </div>
-            <span className="text-white font-bold text-xl tracking-tight">Gate</span>
+            <img
+              src={Logo}
+              alt="Gate Logo"
+              className="h-40 w-auto transition-all duration-300 group-hover:scale-105"
+            />
           </div>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {['Plataforma', 'Soluções', 'Cases', 'Preços'].map((item) => (
-              <a 
-                key={item} 
+              <a
+                key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
               >
@@ -63,7 +64,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle button */}
-          <button 
+          <button
             className="md:hidden text-white p-2 z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -74,14 +75,13 @@ export default function Navbar() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 z-40 bg-[#0a0014]/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+      <div
+        className={`fixed inset-0 z-40 bg-[#0a0014]/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8 ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         {['Plataforma', 'Soluções', 'Cases', 'Preços'].map((item) => (
-          <a 
-            key={item} 
+          <a
+            key={item}
             href={`#${item.toLowerCase()}`}
             className="text-3xl font-bold text-neutral-300 hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(false)}

@@ -28,62 +28,69 @@ gsap.registerPlugin(ScrollTrigger);
 /* ─── Plans ─── */
 const plans = [
   {
-    name: "Essencial",
-    subtitle: "Para quem está começando a estruturar",
-    price: "2.500",
+    name: "Gate BRONZE",
+    subtitle: "Entrada estratégica para presença digital básica",
+    price: "497",
     period: "/mês",
     icon: Zap,
     highlight: false,
-    cta: "Começar com Essencial",
+    cta: "Escolher Bronze",
     features: [
-      { icon: Megaphone, text: "Gestão de tráfego pago (1 canal)" },
-      { icon: Palette, text: "Design para criativos e social" },
-      { icon: BarChart3, text: "Relatório mensal de performance" },
-      { icon: Headphones, text: "Suporte por e-mail" },
+      { icon: Target, text: "Posicionamento: sair do amador e começar certo" },
+      { icon: BarChart3, text: "Diagnóstico inicial das redes sociais" },
+      { icon: Palette, text: "Ajustes básicos (bio, destaques, descrição)" },
+      { icon: Layers, text: "Organização visual simples do feed" },
+      { icon: Users, text: "Gestão de até 1 rede social" },
+      { icon: Megaphone, text: "4 posts/mês (arte + legenda)" },
+      { icon: Rocket, text: "1 vídeo/mês (edição)" },
+      { icon: Headphones, text: "Sugestão de posicionamento e suporte" },
     ],
   },
   {
-    name: "Growth",
-    subtitle: "Operação completa de crescimento",
-    price: "5.900",
+    name: "Gate PRATA",
+    subtitle: "Estruturação profissional da presença digital",
+    price: "697",
     period: "/mês",
-    icon: Rocket,
+    icon: Target,
     highlight: true,
     popular: true,
-    cta: "Começar com Growth",
-    includes: "Tudo do Essencial, mais:",
+    cta: "Escolher Prata",
+    includes: "Tudo do BRONZE, mais:",
     features: [
-      { icon: Megaphone, text: "Tráfego pago multi-canal (Google + Meta)" },
-      { icon: Code2, text: "Landing pages e funis otimizados" },
-      { icon: BrainCircuit, text: "Automação de follow-up com IA" },
-      { icon: Target, text: "Estratégia de CRO e conversão" },
-      { icon: Users, text: "Reunião quinzenal de alinhamento" },
-      { icon: TrendingUp, text: "Dashboard em tempo real" },
+      { icon: Crown, text: "Posicionamento: perfil profissional que gera autoridade" },
+      { icon: Zap, text: "Construção ou reconstrução do perfil" },
+      { icon: Palette, text: "Definição de identidade visual básica" },
+      { icon: Layers, text: "Padronização do feed e planejamento mensal" },
+      { icon: Users, text: "Gestão de até 1 rede social" },
+      { icon: TrendingUp, text: "6 posts/mês (copy estratégica) e 2 vídeos/mês" },
+      { icon: ArrowRight, text: "Criação de destaques estratégicos" },
+      { icon: MessageSquare, text: "Ajustes para perfil mais vendedor" },
     ],
   },
   {
-    name: "Scale",
-    subtitle: "Ecossistema completo sob medida",
-    price: "Sob consulta",
-    period: "",
+    name: "Gate OURO",
+    subtitle: "Máquina de atração e geração de clientes",
+    price: "997",
+    period: "/mês",
     icon: Crown,
     highlight: false,
-    cta: "Falar com especialista",
-    includes: "Tudo do Growth, mais:",
+    cta: "Escolher Ouro",
+    includes: "Tudo do PRATA, mais:",
     features: [
-      { icon: Globe, text: "Desenvolvimento de sistemas e apps" },
-      { icon: BrainCircuit, text: "Agentes de IA personalizados" },
-      { icon: Shield, text: "Consultoria estratégica dedicada" },
-      { icon: Clock, text: "Suporte prioritário 24/7" },
-      { icon: Layers, text: "Integrações sob medida" },
-      { icon: MessageSquare, text: "Equipe exclusiva alocada" },
+      { icon: BrainCircuit, text: "Posicionamento: transformar conteúdo em leads/vendas" },
+      { icon: TrendingUp, text: "8 posts/mês e 4 vídeos/mês elaborados" },
+      { icon: Target, text: "Estratégia de conteúdo focada em vendas" },
+      { icon: Layers, text: "Estruturação de funil simples" },
+      { icon: MessageSquare, text: "Integração WhatsApp (botão, fluxo)" },
+      { icon: Code2, text: "Criação de landing page simples (se necessário)" },
+      { icon: BarChart3, text: "Otimização contínua e análise de métricas" },
     ],
   },
 ];
 
 export default function Pricing() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [annual, setAnnual] = useState(true);
+  const [annual, setAnnual] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -147,7 +154,7 @@ export default function Pricing() {
     >
       {/* ─── Background ─── */}
       <div className="absolute inset-0 bg-[#05000a] pointer-events-none" />
-      <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vw] bg-purple-600/[0.03] blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vw] radial-glow-purple rounded-full pointer-events-none transform-gpu" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* ════════════════════════════════════════════════════
@@ -266,9 +273,7 @@ export default function Pricing() {
                           </span>
                           <span className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight tabular-nums">
                             {annual
-                              ? (
-                                  parseInt(plan.price.replace(".", "")) * 0.8
-                                )
+                              ? Math.round(parseInt(plan.price.replace(".", "")) * 0.8)
                                   .toLocaleString("pt-BR")
                               : plan.price}
                           </span>
@@ -338,10 +343,11 @@ export default function Pricing() {
               <Crown className="w-4 h-4 text-purple-400/70" />
             </div>
             <div>
-              <span className="text-white/80 font-semibold text-sm">
+              <span className="text-white/80 font-semibold text-sm flex items-center gap-2">
                 Enterprise
+                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-white/40 font-normal">Sob consulta</span>
               </span>
-              <span className="text-neutral-500 text-[13px] ml-3">
+              <span className="text-neutral-500 text-[13px] mt-0.5 block">
                 Para operações que precisam de soluções 100% personalizadas, segurança avançada e suporte dedicado.
               </span>
             </div>

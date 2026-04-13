@@ -43,7 +43,7 @@ function SectionDivider() {
 
   return (
     <div ref={ref} className="relative py-2">
-      <div className="divider-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[60px] bg-purple-500/[0.04] blur-[40px] rounded-full" />
+      <div className="divider-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[60px] radial-glow-purple rounded-full transform-gpu" />
       <div className="divider-line mx-auto max-w-2xl h-px bg-gradient-to-r from-transparent via-purple-500/15 to-transparent origin-center" />
     </div>
   )

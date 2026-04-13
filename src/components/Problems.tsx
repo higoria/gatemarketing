@@ -116,13 +116,6 @@ export default function Problems() {
         }
       );
 
-      /* ── Animated chart bars (subtle) ── */
-      gsap.to(".chart-bar-prob", {
-        scaleY: () => 0.4 + Math.random() * 0.6,
-        duration: 1.2,
-        stagger: { each: 0.1, repeat: -1, yoyo: true },
-        ease: "sine.inOut",
-      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -135,8 +128,8 @@ export default function Problems() {
     >
       {/* ─── Background — seamless with App bg ─── */}
       <div className="absolute inset-0 bg-[#05000a] pointer-events-none" />
-      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[30vw] bg-purple-600/[0.06] blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-[30%] right-[10%] w-[25vw] h-[25vw] bg-fuchsia-600/[0.04] blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[30vw] radial-glow-purple rounded-full pointer-events-none transform-gpu" />
+      <div className="absolute top-[30%] right-[10%] w-[25vw] h-[25vw] radial-glow-fuchsia rounded-full pointer-events-none transform-gpu" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
 
@@ -241,10 +234,10 @@ export default function Problems() {
                     {Array.from({ length: 20 }).map((_, i) => (
                       <div
                         key={i}
-                        className="chart-bar-prob flex-1 rounded-[2px] origin-bottom"
+                        className="chart-bar-prob flex-1 rounded-[2px] origin-bottom will-change-transform"
                         style={{
                           height: "100%",
-                          transform: `scaleY(${0.2 + Math.random() * 0.35})`,
+                          animation: `chart-bar-bounce ${1 + (i % 3) * 0.3}s infinite alternate ease-in-out ${i * 0.1}s`,
                           background: `linear-gradient(to top, rgba(168,85,247,${i > 14 ? 0.35 : 0.12}), rgba(168,85,247,0.03))`,
                         }}
                       />
