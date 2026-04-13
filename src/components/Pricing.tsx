@@ -26,61 +26,58 @@ gsap.registerPlugin(ScrollTrigger);
 const plans = [
   {
     name: "Gate BRONZE",
-    subtitle: "Entrada estratégica para presença digital básica",
+    subtitle: "Para quem precisa de presença profissional imediata",
     price: "497",
     period: "/mês",
     icon: Zap,
     highlight: false,
-    cta: "Escolher Bronze",
+    cta: "Começar com o Bronze",
     features: [
-      { icon: Target, text: "Posicionamento: sair do amador e começar certo" },
-      { icon: BarChart3, text: "Diagnóstico inicial das redes sociais" },
-      { icon: Palette, text: "Ajustes básicos (bio, destaques, descrição)" },
-      { icon: Layers, text: "Organização visual simples do feed" },
-      { icon: Users, text: "Gestão de até 1 rede social" },
-      { icon: Megaphone, text: "4 posts/mês (arte + legenda)" },
-      { icon: Rocket, text: "1 vídeo/mês (edição)" },
-      { icon: Headphones, text: "Sugestão de posicionamento e suporte" },
+      { icon: Target, text: "Diagnóstico completo da presença digital atual" },
+      { icon: Palette, text: "Identidade visual aplicada (bio, destaques, feed)" },
+      { icon: Users, text: "Gestão de 1 rede social (Instagram ou LinkedIn)" },
+      { icon: Megaphone, text: "4 posts/mês com copy estratégica + design profissional" },
+      { icon: Rocket, text: "1 vídeo/mês editado e roteirizado" },
+      { icon: BarChart3, text: "Relatório mensal de performance" },
+      { icon: Headphones, text: "Suporte via WhatsApp em horário comercial" },
     ],
   },
   {
     name: "Gate PRATA",
-    subtitle: "Estruturação profissional da presença digital",
+    subtitle: "Para quem quer crescimento consistente e autoridade",
     price: "697",
     period: "/mês",
     icon: Target,
     highlight: true,
     popular: true,
-    cta: "Escolher Prata",
-    includes: "Tudo do BRONZE, mais:",
+    cta: "Quero o Prata →",
+    includes: "Tudo do Bronze, mais:",
     features: [
-      { icon: Crown, text: "Posicionamento: perfil profissional que gera autoridade" },
-      { icon: Zap, text: "Construção ou reconstrução do perfil" },
-      { icon: Palette, text: "Definição de identidade visual básica" },
-      { icon: Layers, text: "Padronização do feed e planejamento mensal" },
-      { icon: Users, text: "Gestão de até 1 rede social" },
-      { icon: TrendingUp, text: "6 posts/mês (copy estratégica) e 2 vídeos/mês" },
-      { icon: ArrowRight, text: "Criação de destaques estratégicos" },
-      { icon: MessageSquare, text: "Ajustes para perfil mais vendedor" },
+      { icon: Crown, text: "Estratégia de posicionamento e autoridade de marca" },
+      { icon: Zap, text: "Reconstrução ou otimização completa do perfil" },
+      { icon: TrendingUp, text: "6 posts/mês + 2 vídeos (reels estratégicos)" },
+      { icon: Layers, text: "Planejamento editorial mensal orientado a resultado" },
+      { icon: ArrowRight, text: "Destaques estratégicos e bio de alta conversão" },
+      { icon: MessageSquare, text: "Resposta a comentários e gestão de engajamento" },
+      { icon: BarChart3, text: "Relatório quinzenal com sugestões de ajuste" },
     ],
   },
   {
     name: "Gate OURO",
-    subtitle: "Máquina de atração e geração de clientes",
+    subtitle: "Para quem quer transformar seguidores em clientes pagando",
     price: "997",
     period: "/mês",
     icon: Crown,
     highlight: false,
-    cta: "Escolher Ouro",
-    includes: "Tudo do PRATA, mais:",
+    cta: "Quero o Ouro",
+    includes: "Tudo do Prata, mais:",
     features: [
-      { icon: BrainCircuit, text: "Posicionamento: transformar conteúdo em leads/vendas" },
-      { icon: TrendingUp, text: "8 posts/mês e 4 vídeos/mês elaborados" },
-      { icon: Target, text: "Estratégia de conteúdo focada em vendas" },
-      { icon: Layers, text: "Estruturação de funil simples" },
-      { icon: MessageSquare, text: "Integração WhatsApp (botão, fluxo)" },
-      { icon: Code2, text: "Criação de landing page simples (se necessário)" },
-      { icon: BarChart3, text: "Otimização contínua e análise de métricas" },
+      { icon: BrainCircuit, text: "Funil de conteúdo estruturado para vendas" },
+      { icon: TrendingUp, text: "8 posts/mês + 4 vídeos elaborados (roteiro + edição)" },
+      { icon: MessageSquare, text: "Automação de DMs e integração WhatsApp Business" },
+      { icon: Code2, text: "Landing page de captura ou página de vendas inclusa" },
+      { icon: Target, text: "Tráfego pago básico (até R$ 500 de verba gerenciada)" },
+      { icon: BarChart3, text: "Dashboard de métricas e reunião mensal de estratégia" },
     ],
   },
 ];
@@ -158,13 +155,19 @@ export default function Pricing() {
             HEADER
             ════════════════════════════════════════════════════ */}
         <div className="pricing-header text-center mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 backdrop-blur-sm">
+            <Sparkles className="w-3 h-3 text-purple-400" />
+            <span className="text-xs font-semibold tracking-wide text-white/60 uppercase">
+              Planos & Investimento
+            </span>
+          </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400/80 mb-5 leading-[1.05]">
-            Valores
+            Invista no que <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-400">gera retorno.</span>
           </h2>
           <p className="text-neutral-400 text-lg max-w-lg mx-auto leading-relaxed">
-            Planos transparentes para cada estágio do seu negócio.{" "}
+            Sem taxa de setup. Sem contrato de 12 meses. Sem surpresas.{" "}
             <span className="text-white/60 font-medium">
-              Escolha o que faz sentido para você.
+              Escolha o plano certo para o momento do seu negócio.
             </span>
           </p>
 
@@ -331,28 +334,48 @@ export default function Pricing() {
           })}
         </div>
 
+        {/* ─── Guarantee row ─── */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8 mt-2">
+          {[
+            { emoji: "🔒", text: "Sem contrato de fidelidade" },
+            { emoji: "💳", text: "Cancele quando quiser" },
+            { emoji: "📊", text: "Relatório de resultados mensais" },
+            { emoji: "🎯", text: "Estratégia 100% personalizada" },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2 text-sm text-neutral-500">
+              <span>{item.emoji}</span>
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
+
         {/* ════════════════════════════════════════════════════
             ENTERPRISE BANNER
             ════════════════════════════════════════════════════ */}
-        <div className="enterprise-banner rounded-2xl border border-white/[0.06] bg-white/[0.015] px-7 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="enterprise-banner rounded-2xl border border-purple-500/10 bg-gradient-to-r from-purple-500/[0.04] to-fuchsia-500/[0.02] px-7 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center flex-shrink-0">
-              <Crown className="w-4 h-4 text-purple-400/70" />
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <Crown className="w-4 h-4 text-purple-400" />
             </div>
             <div>
               <span className="text-white/80 font-semibold text-sm flex items-center gap-2">
-                Enterprise
-                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-white/40 font-normal">Sob consulta</span>
+                Gate Enterprise
+                <span className="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-xs text-purple-400 font-semibold">Sob consulta</span>
               </span>
               <span className="text-neutral-500 text-[13px] mt-0.5 block">
-                Para operações que precisam de soluções 100% personalizadas, segurança avançada e suporte dedicado.
+                Para operações que precisam de tráfego, automação, sistemas e IA — tudo junto, com estratégia dedicada e resultados mensuráveis em 30 dias.
               </span>
             </div>
           </div>
-          <button className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/60 text-sm font-semibold hover:text-white/80 hover:border-white/15 transition-all duration-200 cursor-pointer group">
-            Falar com time
+          <a
+            href="https://wa.me/5500000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-500 text-white text-sm font-semibold hover:bg-purple-400 transition-all duration-200 cursor-pointer group shadow-[0_4px_20px_rgba(168,85,247,0.25)]"
+          >
+            Quero uma proposta personalizada
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -31,54 +31,54 @@ gsap.registerPlugin(ScrollTrigger);
 const pillars = [
   {
     icon: Megaphone,
-    title: "Marketing & Tráfego",
+    title: "Tráfego Pago & Performance",
     description:
-      "Campanhas de alta performance com dados reais. Google, Meta e estratégias que geram leads qualificados — não apenas cliques.",
-    features: ["Tráfego Pago", "Social Media", "Copywriting", "Analytics"],
+      "Gerenciamos cada centavo da sua verba no Google e Meta com estratégia de funil, segmentação precisa e otimização contínua. Você vê o ROI — não só os cliques.",
+    features: ["Google Ads", "Meta Ads", "Copywriting", "Analytics & BI"],
     accent: "purple",
     mockElements: [
-      { icon: TrendingUp, label: "+320% ROAS", value: "R$ 12.4k", sub: "receita gerada" },
-      { icon: MousePointerClick, label: "CTR", value: "4,7%", sub: "acima da média" },
+      { icon: TrendingUp, label: "ROAS médio", value: "+320%", sub: "clientes Gate" },
+      { icon: MousePointerClick, label: "CTR", value: "4,7%", sub: "vs 0,9% mercado" },
       { icon: BarChart3, label: "CPL", value: "R$ 8,20", sub: "custo por lead" },
     ],
   },
   {
     icon: Palette,
-    title: "Design & Branding",
+    title: "Design & Identidade Visual",
     description:
-      "Identidade visual que posiciona. Criamos marcas memoráveis e interfaces que convertem visitantes em clientes.",
-    features: ["UI/UX Design", "Branding", "Motion Design", "Landing Pages"],
+      "Sua marca precisa comunicar autoridade antes mesmo de você falar. Criamos identidade visual, landing pages e peças que vendem — porque design bom converte.",
+    features: ["Branding Completo", "UI/UX Design", "Landing Pages", "Motion Design"],
     accent: "fuchsia",
     mockElements: [
-      { icon: Layout, label: "Landing Page", value: "98/100", sub: "score de design" },
-      { icon: Paintbrush, label: "Brand", value: "100%", sub: "consistência visual" },
-      { icon: Pen, label: "Protótipos", value: "48h", sub: "tempo de entrega" },
+      { icon: Layout, label: "Conversão LP", value: "3x mais", sub: "vs anterior" },
+      { icon: Paintbrush, label: "Entrega", value: "48h", sub: "protótipo aprovado" },
+      { icon: Pen, label: "Ticket médio", value: "+2x", sub: "após rebranding" },
     ],
   },
   {
     icon: Code2,
-    title: "Tecnologia & Sistemas",
+    title: "Sites & Sistemas Web",
     description:
-      "Sites, plataformas e sistemas sob medida. Tecnologia que integra toda sua operação e escala junto com seu negócio.",
-    features: ["Websites", "Web Apps", "APIs", "Integrações"],
+      "Sites rápidos, seguros e otimizados para conversão. Não fazemos sites bonitos — fazemos sites que trabalham 24h para trazer clientes.",
+    features: ["Sites Institucionais", "E-commerce", "Web Apps", "Integrações API"],
     accent: "indigo",
     mockElements: [
-      { icon: MonitorSmartphone, label: "Performance", value: "99/100", sub: "Lighthouse score" },
+      { icon: MonitorSmartphone, label: "Performance", value: "99/100", sub: "Lighthouse" },
       { icon: Server, label: "Uptime", value: "99,9%", sub: "disponibilidade" },
-      { icon: Database, label: "Integrações", value: "15+", sub: "sistemas conectados" },
+      { icon: Database, label: "Integrações", value: "15+", sub: "sistemas" },
     ],
   },
   {
     icon: BrainCircuit,
-    title: "IA & Automação",
+    title: "IA & Automação Inteligente",
     description:
-      "Agentes inteligentes que trabalham 24h. Automatizamos atendimento, follow-up e processos para escalar sem equipe.",
-    features: ["Chatbots IA", "Automações", "Agentes de IA", "N8N & Make"],
+      "Implantamos agentes de IA e automações que trabalham 24h: atendimento, follow-up, qualificação de leads e processos internos — tudo rodando sem você precisar olhar.",
+    features: ["Agentes de IA", "N8N & Make", "Chatbots WhatsApp", "CRM Automatizado"],
     accent: "violet",
     mockElements: [
-      { icon: Bot, label: "Agente IA", value: "24/7", sub: "atendimento ativo" },
-      { icon: MessageSquare, label: "Respostas", value: "<3s", sub: "tempo médio" },
-      { icon: Repeat, label: "Automações", value: "47", sub: "flows ativos" },
+      { icon: Bot, label: "Atendimento", value: "24/7", sub: "sem parar" },
+      { icon: MessageSquare, label: "Resposta", value: "<3s", sub: "tempo médio" },
+      { icon: Repeat, label: "Automações", value: "47+", sub: "flows ativos" },
     ],
   },
 ];
@@ -171,22 +171,21 @@ export default function Solutions() {
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400/80 mb-4 leading-[1.1]">
-                Um sistema,{" "}
+                Uma operação completa,{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-400">
-                  não serviços soltos.
+                  não serviços avulsos.
                 </span>
               </h2>
 
               <div className="max-w-xl space-y-2">
                 <p className="text-neutral-400 text-lg leading-relaxed">
-                  A Gate não vende serviços isolados.{" "}
+                  A Gate não é mais uma agência que vende post e some.{" "}
                   <span className="text-white/70 font-medium">
-                    Nós criamos um ecossistema completo de crescimento.
+                    Somos seu time de crescimento completo.
                   </span>
                 </p>
                 <p className="text-neutral-500 text-base leading-relaxed">
-                  Unimos marketing, design, tecnologia e inteligência artificial
-                  para construir uma operação que atrai, converte e escala clientes todos os dias.
+                  Tráfego, design, tecnologia e IA — tudo integrado, tudo medido, tudo otimizado para uma única meta: <strong className="text-white/60">fazer você faturar mais todo mês.</strong>
                 </p>
               </div>
             </div>

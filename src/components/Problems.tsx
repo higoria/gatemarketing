@@ -21,38 +21,38 @@ const problems = [
   {
     step: "01",
     icon: DollarSign,
-    title: "Investimento sem retorno claro",
+    title: "Dinheiro jogado fora em anúncios",
     description:
-      "Você investe em anúncios todo mês, mas não sabe exatamente quanto volta. Os relatórios são genéricos e o dinheiro parece evaporar.",
+      "Você investe R$ 3.000, R$ 5.000, R$ 10.000/mês em tráfego pago e o relatório mostra cliques — mas não mostra dinheiro na conta. Sem gestão especializada, a maioria das verbas queima.",
     stat: "-67%",
-    statLabel: "ROI típico sem gestão profissional",
+    statLabel: "ROI médio sem gestão profissional",
   },
   {
     step: "02",
     icon: Clock,
-    title: "Processos manuais que drenam tempo",
+    title: "Leads que aparecem e somem",
     description:
-      "Sua equipe perde horas respondendo leads no WhatsApp, atualizando planilhas e fazendo tarefas repetitivas.",
-    stat: "12h",
-    statLabel: "desperdiçadas por semana em média",
+      "Você gera interesse mas não tem um processo para converter. Leads chegam pelo Instagram, WhatsApp e site — e ficam sem resposta por horas. O concorrente responde em minutos.",
+    stat: "78%",
+    statLabel: "dos leads perdidos por falta de follow-up",
   },
   {
     step: "03",
     icon: XCircle,
-    title: "Site que não converte",
+    title: "Site que é vitrine, não vendedor",
     description:
-      "Seu site é bonito, mas não gera leads. Sem copy persuasivo, sem funil e sem performance — é um cartão de visita digital caro.",
+      "Seu site existe, mas não trabalha por você. Sem copy persuasivo, sem funil estruturado e sem CTA estratégico, ele é um cartão de visita digital que não gera nenhuma receita.",
     stat: "0,8%",
-    statLabel: "taxa de conversão média sem otimização",
+    statLabel: "conversão média de sites sem otimização",
   },
   {
     step: "04",
     icon: AlertTriangle,
-    title: "Marketing desconectado",
+    title: "Agências que entregam pouco e somem",
     description:
-      "Social media de um lado, tráfego do outro, site de outro fornecedor. Nada conversa entre si e os resultados ficam fragmentados.",
+      "Social media por uma agência. Site por outra. Tráfego com freelancer. Nada conversa. Você paga por 3 fornecedores e o resultado não aparece porque nenhum tem visão do todo.",
     stat: "4x",
-    statLabel: "mais caro que uma operação integrada",
+    statLabel: "mais caro do que uma operação integrada",
   },
 ];
 
@@ -148,22 +148,21 @@ export default function Problems() {
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400/80 mb-5 leading-[1.1]">
-              Sua operação digital{" "}
+              Você trabalha muito.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-400">
-                está travada.
+                Os resultados não aparecem.
               </span>
             </h2>
 
             <p className="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">
-              Enquanto você lê isso, leads frios estão sendo ignorados, anúncios
-              estão queimando verba e seu concorrente está escalando.
+              Enquanto você lê isso, <strong className="text-white/80">leads qualificados estão sendo ignorados</strong>, verba de anúncios está evaporando e seu concorrente — que tem uma operação integrada — está crescendo no lugar de você.
             </p>
 
             <div className="flex flex-col gap-3">
               {[
-                "Anúncios que não geram retorno previsível",
-                "Leads perdidos por falta de automação",
-                "Zero integração entre canais de marketing",
+                "Verba de anúncios sem retorno mensurável",
+                "Leads perdidos por falta de automação e follow-up",
+                "3 fornecedores diferentes, zero resultado integrado",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 group cursor-default">
                   <div className="w-5 h-5 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors duration-200">
@@ -376,12 +375,22 @@ export default function Problems() {
         {/* ─── Bottom transition ─── */}
         <div className="text-center mt-16 md:mt-20">
           <p className="text-neutral-500 text-sm md:text-base mb-3">
-            Se você se identificou com pelo menos um desses problemas...
+            Se você se identificou com qualquer um desses pontos...
           </p>
           <p className="text-xl md:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-300/80">
-            A Gate foi criada para resolver cada um deles.
+            A Gate resolve tudo isso. De forma integrada. Com resultado comprovado.
           </p>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://wa.me/5500000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.04] border border-white/10 text-white/60 text-sm font-medium hover:bg-white/[0.08] hover:text-white hover:border-white/20 transition-all duration-200"
+            >
+              Quero ver como a Gate resolve o meu caso →
+            </a>
+          </div>
+          <div className="mt-8 flex justify-center">
             <div className="w-7 h-10 rounded-full border border-white/10 flex justify-center pt-2">
               <div className="w-0.5 h-2.5 rounded-full bg-white/20 animate-bounce" />
             </div>

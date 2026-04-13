@@ -24,9 +24,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed -top-10 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "py-1 bg-[#0a0014]/60 backdrop-blur-md border-b border-white/5"
-          : "py-0 bg-transparent border-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+          ? "py-3 bg-[#0a0014]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+          : "py-5 bg-transparent border-transparent"
           }`}
       >
         <div className="max-w-[1700px] mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -36,31 +36,39 @@ export default function Navbar() {
             <img
               src={Logo}
               alt="Gate Logo"
-              className="h-40 w-auto transition-all duration-300 group-hover:scale-105"
+              className="h-24 w-auto transition-all duration-300 group-hover:scale-105"
             />
           </div>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-            {['Plataforma', 'Soluções', 'Cases', 'Preços'].map((item) => (
+            {[
+              { label: 'Soluções', href: '#soluções' },
+              { label: 'Cases', href: '#cases' },
+              { label: 'Preços', href: '#preços' },
+              { label: 'Contato', href: '#contato' },
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200 relative group"
               >
-                {item}
+                {item.label}
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-purple-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <button className="text-sm text-neutral-300 hover:text-white font-medium transition-colors px-4 py-2">
-              Login
-            </button>
-            <button className="relative overflow-hidden rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-6 py-2 text-white font-medium text-sm transition-all hover:bg-white/20 hover:border-white/40 shadow-[0_0_10px_rgba(255,255,255,0.05)]">
-              Agendar Demo
-            </button>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://wa.me/5500000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative overflow-hidden rounded-full bg-white text-black px-5 py-2 font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            >
+              Falar com especialista →
+            </a>
           </div>
 
           {/* Mobile Menu Toggle button */}
@@ -90,12 +98,15 @@ export default function Navbar() {
           </a>
         ))}
         <div className="flex flex-col gap-4 mt-8 w-full max-w-xs px-6">
-          <button className="w-full py-3 rounded-full border border-white/20 bg-transparent text-white font-medium">
-            Login
-          </button>
-          <button className="w-full py-3 rounded-full bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-            Agendar Demo
-          </button>
+          <a
+            href="https://wa.me/5500000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-full py-3 rounded-full bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)] text-center"
+          >
+            Falar com especialista →
+          </a>
         </div>
       </div>
     </>

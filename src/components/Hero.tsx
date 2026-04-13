@@ -143,27 +143,47 @@ export default function HeroSection() {
         <div ref={contentRef} className="max-w-4xl mx-auto flex flex-col items-center text-center">
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7] animate-pulse" />
-            <span className="text-xs font-semibold tracking-wide text-white/80 uppercase">Gate Agency v2.0</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#22c55e] animate-pulse" />
+            <span className="text-xs font-semibold tracking-wide text-white/80">🔥 Vagas abertas para Maio · Apenas 5 slots disponíveis</span>
           </div>
 
-          {/* Main Headline mimicking Wope's weight and style */}
+          {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400/80 mb-6 leading-tight pb-2" style={{ fontWeight: 700 }}>
-            Escalamos seu negócio com marketing,<br className="hidden md:block" /> tecnologia e automação inteligente.
+            Sua empresa fatura mais.<br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-400">A Gate garante isso.</span>
           </h1>
 
-          {/* Subheadline styling as gray transparent text */}
-          <p className="text-lg md:text-xl text-neutral-400 font-medium tracking-tight max-w-2xl text-balance mb-10">
-            Tráfego pago, IA, sites e sistemas integrados para elevar sua operação ao nível de <strong className="text-white">escala máxima e crescimento constante.</strong>
+          {/* Subheadline */}
+          <p className="text-lg md:text-xl text-neutral-400 font-medium tracking-tight max-w-2xl text-balance mb-4">
+            Unimos tráfego pago, automação com IA, design estratégico e tecnologia em uma única operação — <strong className="text-white">para gerar mais leads, mais vendas e mais previsibilidade.</strong>
           </p>
+
+          {/* Social proof micro */}
+          <div className="flex items-center gap-3 mb-10">
+            <div className="flex -space-x-2">
+              {['LF','AB','RS','MC','PA'].map((abbr) => (
+                <div key={abbr} className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/30 to-fuchsia-500/20 border-2 border-[#05000a] flex items-center justify-center text-[9px] font-bold text-white/60">
+                  {abbr}
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-neutral-400">
+              <span className="text-white font-semibold">+120 empresas</span> já escalaram com a Gate
+            </p>
+          </div>
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button className="relative overflow-hidden rounded-full bg-white text-black px-8 py-3.5 font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-              Agendar Consultoria
-            </button>
+            <a
+              href="https://wa.me/5500000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative overflow-hidden rounded-full bg-white text-black px-8 py-3.5 font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            >
+              Quero escalar meu negócio →
+            </a>
             <button className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-8 py-3.5 text-white/90 font-medium text-sm transition-all hover:bg-white/10 hover:border-white/40 shadow-[0_0_15px_rgba(168,85,247,0.1)] group">
-              <span className="flex items-center gap-2">Explorar Cases <ArrowUpDown className="w-4 h-4 rotate-90 opacity-50 group-hover:opacity-100 transition-opacity" /></span>
+              <span className="flex items-center gap-2">Ver resultados reais <ArrowUpDown className="w-4 h-4 rotate-90 opacity-50 group-hover:opacity-100 transition-opacity" /></span>
             </button>
           </div>
         </div>
